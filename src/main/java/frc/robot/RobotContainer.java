@@ -7,6 +7,7 @@ package frc.robot;
 import frc.robot.Constants.IntakeConstants;
 import frc.robot.commands.ControlIntakeCommand;
 import frc.robot.commands.ShootCommand;
+import frc.robot.commands.SpinIntakeCommand;
 import frc.robot.subsystems.IntakeSubSystem;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PS4Controller;
@@ -54,6 +55,7 @@ public class RobotContainer {
     // m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
     
     intakeSubSystem.setDefaultCommand(new ControlIntakeCommand(intakeSubSystem, Math.max(0, controller.getLeftY()*IntakeConstants.maxDegreesArm)));
+    controller.x().whileTrue(new SpinIntakeCommand(intakeSubSystem));
     controller.a().whileTrue(new ShootCommand(intakeSubSystem, IntakeConstants.highSpeed));
     controller.b().whileTrue(new ShootCommand(intakeSubSystem, IntakeConstants.lowSpeed));
     controller.y().whileTrue(new ShootCommand(intakeSubSystem, IntakeConstants.middleSpeed));
