@@ -53,7 +53,6 @@ public class RobotContainer {
     // cancelling on release.
     // m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
     
-    // *360 for degrees
     intakeSubSystem.setDefaultCommand(new ControlIntakeCommand(intakeSubSystem, Math.max(0, controller.getLeftY()*IntakeConstants.maxDegreesArm)));
     controller.a().whileTrue(new ShootCommand(intakeSubSystem, IntakeConstants.highSpeed));
     controller.b().whileTrue(new ShootCommand(intakeSubSystem, IntakeConstants.lowSpeed));
