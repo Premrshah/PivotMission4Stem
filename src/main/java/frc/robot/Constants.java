@@ -68,6 +68,7 @@ public final class Constants {
 
     public static final TalonFXConfiguration WHEEL_CONFIGS = new TalonFXConfiguration();
 
+    public static int maxDegreesArm = 128;
 
 
   }
